@@ -5,18 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OcsComponent } from './ocs/ocs.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { OcsService } from './ocs.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OcsComponent
+    OcsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [OcsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

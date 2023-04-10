@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,4 +16,10 @@ export class OcsService {
   getBookList(): Observable<any> {
     return this.httpClient.get<any>(`${this.baseURL}`);
   }
+
+  public login(username: string, password: string) {
+    const headers = new HttpHeaders({AUthorization: 'basic' + btoa(username + ":" + password)})
+    return this.httpClient.get("http://localhost:8080/", {headers, responseType:'text' as 'json'});
+  }
+  
 }
