@@ -4,8 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { OcsComponent } from './ocs/ocs.component';
 
 const routes: Routes = [
+  {path: "", component: LoginComponent, pathMatch: "full"},
   {path: "login", component: LoginComponent},
-  {path: "", component: LoginComponent},
   {path: "home", component: OcsComponent}
 ];
 

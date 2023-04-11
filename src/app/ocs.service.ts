@@ -17,9 +17,23 @@ export class OcsService {
     return this.httpClient.get<any>(`${this.baseURL}`);
   }
 
+  public getBook() {
+    let username = "user";
+    let password = "password";
+    const headers = new HttpHeaders({Authorization: 'Basic ' + (username + ":" + password)})
+    return this.httpClient.get("http://localhost:8080/book", {headers});
+  }
+
   public login(username: string, password: string) {
-    const headers = new HttpHeaders({AUthorization: 'basic' + btoa(username + ":" + password)})
+    const headers = new HttpHeaders({Authorization: 'Basic ' + (username + ":" + password)});
     return this.httpClient.get("http://localhost:8080/", {headers, responseType:'text' as 'json'});
+  }
+
+  public getUser() {
+    let username = "user";
+    let password = "password";
+    const headers = new HttpHeaders({Authorization: 'Basic ' + (username + ":" + password)});
+    return this.httpClient.get("http://localhost:8080/user", {headers});
   }
   
 }

@@ -7,6 +7,7 @@ import { OcsComponent } from './ocs/ocs.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { OcsService } from './ocs.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { OcsService } from './ocs.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [OcsService],
   bootstrap: [AppComponent]

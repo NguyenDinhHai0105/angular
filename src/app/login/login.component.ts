@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OcsService } from '../ocs.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,18 +13,21 @@ export class LoginComponent implements OnInit {
   password!: string;
   message: any;
 
-  constructor(private service: OcsService) {
+  constructor(
+    private service: OcsService,
+    private router: Router
+  ) {}
 
-  }
-
-  ngOnInit(): void {
-    
+  ngOnInit(): void {    
   }
 
   doLogin() {
+    console.log(this.username + this.password);
     let resp = this.service.login(this.username, this.password);
     resp.subscribe(data => {
-      console.log(data);
+      this.message = data;
+      this.router.navigate(["/home"])
     })
   }
+
 }
